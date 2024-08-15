@@ -21,8 +21,23 @@ class MainApp extends StatelessWidget {
   }
 }
 
-class HomePage extends StatelessWidget {
+class HomePage extends StatefulWidget {
   const HomePage({super.key});
+
+  @override
+  State<HomePage> createState() => _HomePageState();
+}
+
+class _HomePageState extends State<HomePage> {
+  List<String> categories = [
+    'category 1',
+    'category 3',
+    'category 4',
+    'category 5',
+    'category 6',
+    'category 7',
+    'category 8',
+  ];
 
   @override
   Widget build(BuildContext context) {
@@ -30,6 +45,21 @@ class HomePage extends StatelessWidget {
       appBar: AppBar(
         backgroundColor: Colors.red,
         title: Text('Home Page'),
+      ),
+      body: GridView.builder(
+        gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
+          crossAxisCount: 2,
+          mainAxisExtent: 100,
+        ),
+        itemCount: categories.length,
+        itemBuilder: (BuildContext context, int index) {
+          return Container(
+            decoration: BoxDecoration(
+              color: Colors.red,
+            ),
+            child: Text(categories[index]),
+          );
+        },
       ),
       bottomNavigationBar: BottomAppBar(
         child: Row(
@@ -43,7 +73,9 @@ class HomePage extends StatelessWidget {
             ),
             IconButton(
               onPressed: () {
-                Navigator.pushNamed(context, '/secondpage');
+                // Navigator.pushNamed(context, '/secondpage');
+                Navigator.push(context,
+                    MaterialPageRoute(builder: (context) => SecondPage()));
               },
               icon: Icon(Icons.settings),
             ),
