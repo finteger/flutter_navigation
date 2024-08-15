@@ -27,10 +27,30 @@ class HomePage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-        appBar: AppBar(
-      backgroundColor: Colors.red,
-      title: Text('Home Page'),
-    ));
+      appBar: AppBar(
+        backgroundColor: Colors.red,
+        title: Text('Home Page'),
+      ),
+      bottomNavigationBar: BottomAppBar(
+        child: Row(
+          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+          children: [
+            IconButton(
+              onPressed: () {
+                Navigator.pushNamed(context, '/');
+              },
+              icon: Icon(Icons.home),
+            ),
+            IconButton(
+              onPressed: () {
+                Navigator.pushNamed(context, '/secondpage');
+              },
+              icon: Icon(Icons.settings),
+            )
+          ],
+        ),
+      ),
+    );
   }
 }
 
@@ -41,7 +61,7 @@ class SecondPage extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
         appBar: AppBar(
-      backgroundColor: Colors.red,
+      backgroundColor: Colors.blue,
       title: Text('Second Page'),
     ));
   }
