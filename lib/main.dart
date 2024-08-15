@@ -46,6 +46,12 @@ class HomePage extends StatelessWidget {
                 Navigator.pushNamed(context, '/secondpage');
               },
               icon: Icon(Icons.settings),
+            ),
+            IconButton(
+              onPressed: () {
+                Navigator.pushNamed(context, '/thirdpage');
+              },
+              icon: Icon(Icons.search),
             )
           ],
         ),
@@ -60,10 +66,36 @@ class SecondPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-        appBar: AppBar(
-      backgroundColor: Colors.blue,
-      title: Text('Second Page'),
-    ));
+      appBar: AppBar(
+        backgroundColor: Colors.blue,
+        title: Text('Second Page'),
+      ),
+      bottomNavigationBar: BottomAppBar(
+        child: Row(
+          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+          children: [
+            IconButton(
+              onPressed: () {
+                Navigator.pushNamed(context, '/');
+              },
+              icon: Icon(Icons.home),
+            ),
+            IconButton(
+              onPressed: () {
+                Navigator.pushNamed(context, '/secondpage');
+              },
+              icon: Icon(Icons.settings),
+            ),
+            IconButton(
+              onPressed: () {
+                Navigator.pushNamed(context, '/thirdpage');
+              },
+              icon: Icon(Icons.search),
+            )
+          ],
+        ),
+      ),
+    );
   }
 }
 
@@ -73,9 +105,35 @@ class ThirdPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-        appBar: AppBar(
-      backgroundColor: Colors.red,
-      title: Text('Third Page'),
-    ));
+      appBar: AppBar(
+        backgroundColor: Colors.green,
+        title: Text('Third Page'),
+      ),
+      bottomNavigationBar: BottomAppBar(
+        child: Row(
+          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+          children: [
+            IconButton(
+              onPressed: () {
+                Navigator.pushNamed(context, '/');
+              },
+              icon: Icon(Icons.home),
+            ),
+            IconButton(
+              onPressed: () {
+                Navigator.pushNamed(context, '/secondpage');
+              },
+              icon: Icon(Icons.settings),
+            ),
+            IconButton(
+              onPressed: () {
+                Navigator.pushNamed(context, '/thirdpage');
+              },
+              icon: Icon(Icons.search),
+            )
+          ],
+        ),
+      ),
+    );
   }
 }
